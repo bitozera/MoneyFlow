@@ -1,9 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <businessObjectModel xmlns="http://documentation.bonitasoft.com/bdm-xml-schema/1.0" modelVersion="1.0">
     <businessObjects>
-        <businessObject qualifiedName="com.company.model.BusinessObject">
+        <businessObject qualifiedName="com.company.model.MfDespesas">
             <fields>
-                <field type="STRING" length="255" name="attribute" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="descricao" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.company.model.MfDespesasTipo" fetchType="LAZY" name="tipo" nullable="true" collection="false"/>
+                <field type="DOUBLE" length="255" name="valorTotal" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="parcelas" nullable="true" collection="false"/>
+                <field type="DOUBLE" length="255" name="valorParcela" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.company.model.MfDespesasLocal" fetchType="LAZY" name="localDespesa" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.company.model.MfDespesasMetodo" fetchType="LAZY" name="metodoDespesa" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.company.model.MfDespesasMetodoCartao" fetchType="LAZY" name="metodoDespesaCartao" nullable="true" collection="false"/>
+                <field type="LOCALDATE" length="255" name="dataDespesa" nullable="true" collection="false"/>
+                <field type="LOCALDATE" length="255" name="dataDespesaPaga" nullable="true" collection="false"/>
+                <field type="LOCALDATE" length="255" name="dataCriacaoDespesa" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="despesaPaga" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.MfDespesasLocal">
+            <fields>
+                <field type="STRING" length="255" name="nome" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.MfDespesasMetodo">
+            <fields>
+                <field type="STRING" length="255" name="nome" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.company.model.MfDespesasMetodoCartao" fetchType="LAZY" name="cartao" nullable="true" collection="true"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.MfDespesasMetodoCartao">
+            <fields>
+                <field type="STRING" length="255" name="nome" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="banco" nullable="true" collection="false"/>
+                <field type="DOUBLE" length="255" name="limiteCredito" nullable="true" collection="false"/>
+                <field type="LOCALDATE" length="255" name="dataVencimento" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.MfDespesasTipo">
+            <fields>
+                <field type="STRING" length="255" name="nome" nullable="true" collection="false"/>
             </fields>
             <uniqueConstraints/>
             <queries/>
