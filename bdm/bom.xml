@@ -15,6 +15,7 @@
                 <field type="LOCALDATE" length="255" name="dataDespesaPaga" nullable="true" collection="false"/>
                 <field type="LOCALDATE" length="255" name="dataCriacaoDespesa" nullable="true" collection="false"/>
                 <field type="BOOLEAN" length="255" name="despesaPaga" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="parcelasPagas" nullable="true" collection="false"/>
             </fields>
             <uniqueConstraints/>
             <queries/>
@@ -31,7 +32,8 @@
         <businessObject qualifiedName="com.company.model.MfDespesasMetodo">
             <fields>
                 <field type="STRING" length="255" name="nome" nullable="true" collection="false"/>
-                <relationField type="AGGREGATION" reference="com.company.model.MfDespesasMetodoCartao" fetchType="LAZY" name="cartao" nullable="true" collection="true"/>
+                <relationField type="COMPOSITION" reference="com.company.model.MfDespesasMetodoCartao" fetchType="EAGER" name="cartao" nullable="true" collection="true"/>
+                <field type="BOOLEAN" length="255" name="existeParcela" nullable="true" collection="false"/>
             </fields>
             <uniqueConstraints/>
             <queries/>
@@ -42,7 +44,8 @@
                 <field type="STRING" length="255" name="nome" nullable="true" collection="false"/>
                 <field type="STRING" length="255" name="banco" nullable="true" collection="false"/>
                 <field type="DOUBLE" length="255" name="limiteCredito" nullable="true" collection="false"/>
-                <field type="LOCALDATE" length="255" name="dataVencimento" nullable="true" collection="false"/>
+                <field type="DOUBLE" length="255" name="disponivel" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="diaVencimento" nullable="true" collection="false"/>
             </fields>
             <uniqueConstraints/>
             <queries/>
