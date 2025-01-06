@@ -59,5 +59,16 @@
             <queries/>
             <indexes/>
         </businessObject>
+        <businessObject qualifiedName="com.company.model.MfReceitas">
+            <fields>
+                <field type="LOCALDATE" length="255" name="dataCriacaoReceita" nullable="true" collection="false"/>
+                <field type="LOCALDATE" length="255" name="dataReceita" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="descricao" nullable="true" collection="false"/>
+                <field type="DOUBLE" length="255" name="valorReceita" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
     </businessObjects>
 </businessObjectModel>
